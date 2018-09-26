@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+//import 'node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
+
 
 import EventPage from './EventPage.js'
 
