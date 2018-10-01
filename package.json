@@ -1,12 +1,14 @@
 {
-  "name": "polisapidashboard",
+  "name": "spiritandplace",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "react": "^16.5.2",
     "react-bootstrap-table": "^4.3.1",
     "react-dom": "^16.5.2",
-    "react-scripts": "1.1.5"
+    "react-scripts": "1.1.5",
+    "webpack": "^4.20.2",
+    "webpack-dev-server": "^3.1.9"
   },
   "scripts": {
     "start": "react-scripts start",
