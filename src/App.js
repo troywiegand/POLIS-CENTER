@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 //import 'node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 
@@ -12,7 +13,15 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Spirit & Place</h1>
         </header>
-        < EventPage />
+        <Switch>
+          <Route path="/Event"
+            render={() => {return(<EventPage />)}}/>
+          <Route render={()=>{
+            return(
+              <Redirect to="/Event"/>
+            )
+          }} />
+        </Switch>
       </div>
     );
   }
