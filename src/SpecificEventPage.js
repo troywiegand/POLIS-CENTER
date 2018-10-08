@@ -1,23 +1,21 @@
 import React, { Component } from 'react';
 import EventList from './EventList.js';
 
-class EventPage extends Component {
+class SpecificEventPage extends Component {
 constructor(){
   super()
 }
 
   render() {
     return (
-      <div className="EventPage">
+      <div className="SpecificEventPage">
     
-          <h1 >Events!!!</h1>
-          <EventList />
+          Yee Haw!
     
       </div>
     );
   }
 }
 
-export default EventPage;
-
+export default SpecificEventPage;
 

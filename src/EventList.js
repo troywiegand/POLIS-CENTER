@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-
+import {NavLink} from 'react-router-dom'
 
 
 class EventList extends Component {
@@ -43,13 +43,17 @@ class EventList extends Component {
       let url = 'http://www.spiritandplace.org' + row.eventPicture
       return (
         <div>
+          <NavLink to={`/Event/${row.eventTitle}`} >
           <h3> {row.eventTitle} </h3>
+          </NavLink>
           <img src={url} alt="etc" height="168" width="168" />
         </div>)
 
     }
 
-    return <h3> {row.eventTitle} </h3>
+    return  <NavLink to={`/Event/${row.eventTitle}`} >
+    <h3> {row.eventTitle} </h3>
+    </NavLink>
   }
 
 
