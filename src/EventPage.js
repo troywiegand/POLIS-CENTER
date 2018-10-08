@@ -11,7 +11,7 @@ constructor(){
       <div className="EventPage">
     
           <h1 >Events!!!</h1>
-          <EventList />
+          <EventList items={this.props.items} />
     
       </div>
     );

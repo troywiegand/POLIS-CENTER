@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
-import EventList from './EventList.js';
 
 class SpecificEventPage extends Component {
-constructor(){
-  super()
+constructor(props){
+  super(props)
+
+ let eventNumb= this.props.location.pathname.slice(7,8)
+ console.log(eventNumb)
+ let eventIndex= parseInt(eventNumb)-2
+ console.log(eventIndex)
+ this.state={eventIndex}
+ console.log(this.props)
 }
 
   render() {
     return (
       <div className="SpecificEventPage">
     
-          Yee Haw!
+          <h1>
+            {}
+          </h1>
     
       </div>
     );

@@ -4,35 +4,7 @@ import {NavLink} from 'react-router-dom'
 
 
 class EventList extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      error: null,
-      isLoaded: false,
-      items: []
-    }
-  }
-
-  componentWillMount() {
-    fetch("http://in-polis-app27.ads.iu.edu/SpiritAPI/API/Spirit/Events")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            items: result
-          })
-        },
-
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          })
-        }
-      )
-  }
-
+ 
   descFormatter = (cell, row) => {
     let modifiedCell = { __html: cell }
     return <div dangerouslySetInnerHTML={modifiedCell} />
@@ -51,7 +23,7 @@ class EventList extends Component {
 
     }
 
-    return  <NavLink to={`/Event/${row.eventTitle}`} >
+    return  <NavLink to={`/Event/${row.eventId}/${row.eventTitle}`}>
     <h3> {row.eventTitle} </h3>
     </NavLink>
   }
@@ -62,7 +34,7 @@ class EventList extends Component {
       <div className="EventList">
 
         <div style={style}>
-          <BootstrapTable data={this.state.items} striped hover condensed keyField='eventID' height='120px' search>
+          <BootstrapTable data={this.props.items} striped hover condensed keyField='eventID' height='120px' search>
             <TableHeaderColumn dataFormat={this.nameFormatter} dataField='eventTitle' > Name</TableHeaderColumn>
             <TableHeaderColumn dataFormat={this.descFormatter} dataField='eventDesc'>Description</TableHeaderColumn>
           </BootstrapTable>
