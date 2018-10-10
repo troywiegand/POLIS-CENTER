@@ -15,14 +15,14 @@ class EventList extends Component {
       let url = 'http://www.spiritandplace.org' + row.eventPicture
       return (
         <div>
-          <NavLink to={`/Event/${row.eventTitle}`} >
+          <NavLink to={`/Event/${row.eventId}/${row.eventTitle}`} >
           <h3> {row.eventTitle} </h3>
           </NavLink>
           <img src={url} alt="etc" height="168" width="168" />
         </div>)
 
     }
-
+console.log(`/Event/${row.eventId}/${row.eventTitle}`)
     return  <NavLink to={`/Event/${row.eventId}/${row.eventTitle}`}>
     <h3> {row.eventTitle} </h3>
     </NavLink>
