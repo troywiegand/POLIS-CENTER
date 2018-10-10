@@ -5,7 +5,7 @@ import SpecificEventPage from './SpecificEventPage'
 //import 'node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 
 
-import EventPage from './EventPage.js'
+import EventList from './EventList'
 
 class App extends Component {
 
@@ -16,10 +16,11 @@ class App extends Component {
       isLoaded: false,
       items: []
     }
+    this.loadAPI()
   }
   
   
-componentWillMount() {
+loadAPI = ()=> {
   fetch("http://in-polis-app27.ads.iu.edu/SpiritAPI/API/Spirit/Events")
     .then(res => res.json())
     .then(
@@ -49,14 +50,14 @@ componentWillMount() {
         </header>
 
         <Switch>
-          <Route path="/Event/:EventName"
+          <Route path="/Event/:eventId/:eventTitle"
             render={(navProps) => {
               return (
-                <SpecificEventPage {...navProps} items={this.state.items} />
+                <SpecificEventPage {...navProps} items={this.state.items} loadAPI={this.loadAPI}/>
               )
             }} />
           <Route path="/Event"
-            render={() => { return (<EventPage items={this.state.items} />) }} />
+            render={() => { return (<EventList items={this.state.items} />) }} />
           <Route render={() => {
             return (
               <Redirect to="/Event" />
