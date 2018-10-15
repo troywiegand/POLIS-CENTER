@@ -5,11 +5,13 @@ import {NavLink} from 'react-router-dom'
 
 class EventList extends Component {
  
+  //Processes the decription to dangerously inject the HTML
   descFormatter = (cell, row) => {
     let modifiedCell = { __html: cell }
     return <div dangerouslySetInnerHTML={modifiedCell} />
   }
 
+//Name Formatter will add the picture into the title for the events with pictures.
   nameFormatter = (cell, row) => {
     if (row.eventPicture !== "") {
       let url = 'http://www.spiritandplace.org' + row.eventPicture
@@ -22,7 +24,7 @@ class EventList extends Component {
         </div>)
 
     }
-console.log(`/Event/${row.eventId}/${row.eventTitle}`)
+
     return  <NavLink to={`/Event/${row.eventId}/${row.eventTitle}`}>
     <h3> {row.eventTitle} </h3>
     </NavLink>
@@ -32,7 +34,7 @@ console.log(`/Event/${row.eventId}/${row.eventTitle}`)
   render() {
     return (
       <div className="EventList">
-
+{/* This Bootstrap table is powerful  */}
         <div style={style}>
           <BootstrapTable data={this.props.items} striped hover condensed keyField='eventID' height='120px' search>
             <TableHeaderColumn dataFormat={this.nameFormatter} dataField='eventTitle' > Name</TableHeaderColumn>
