@@ -22,7 +22,7 @@ class App extends Component {
   
 loadAPI = ()=> {
   //This gets the event info
-  fetch("http://in-polis-app27.ads.iu.edu/SpiritAPI/API/Spirit/Events")
+  fetch("https://in-polis-app27.ads.iu.edu/SpiritAPI/API/Spirit/Events")
     .then(res => res.json())
     .then(
       (result) => {
@@ -40,7 +40,7 @@ loadAPI = ()=> {
       }
     )
 //This gets the presenters info 
-    fetch("http://in-polis-app27.ads.iu.edu/SpiritAPI/API/Spirit/Presenters")
+    fetch("https://in-polis-app27.ads.iu.edu/SpiritAPI/API/Spirit/Presenters")
     .then(res => res.json())
     .then(
       (result) => {
@@ -58,7 +58,7 @@ loadAPI = ()=> {
       }
     )
 //This gets the info about the schedule
-    fetch("http://in-polis-app27.ads.iu.edu/SpiritAPI/API/Spirit/Schedule")
+    fetch("https://in-polis-app27.ads.iu.edu/SpiritAPI/API/Spirit/Schedule")
     .then(res => res.json())
     .then(
       (result) => {
