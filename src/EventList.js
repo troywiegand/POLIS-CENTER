@@ -1,10 +1,21 @@
 import React, { Component } from 'react';
-import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import { BootstrapTable, TableHeaderColumn, SearchField } from 'react-bootstrap-table';
 import {NavLink} from 'react-router-dom'
+
+import './EventList.css'
 
 
 class EventList extends Component {
- 
+
+  constructor(props){
+    super(props)
+    this.state={
+      options: {
+        searchField: this.createCustomSearchField
+      }
+    }
+  }
+
   //Processes the decription to dangerously inject the HTML
   descFormatter = (cell, row) => {
     let modifiedCell = { __html: cell }
@@ -30,14 +41,30 @@ class EventList extends Component {
     </NavLink>
   }
 
+  createCustomSearchField = (props) => {
+    return (
+      <center>
+ <SearchField
+          className='search'/>
+
+      </center>
+     
+    );
+  }
+
+
+
+  
 
   render() {
     return (
       <div className="EventList">
 {/* This Bootstrap table is powerful  */}
         <div style={style}>
-          <BootstrapTable data={this.props.items} striped hover condensed keyField='eventID' height='120px' search>
-            <TableHeaderColumn dataFormat={this.nameFormatter} dataField='eventTitle' > Name</TableHeaderColumn>
+          <BootstrapTable data={this.props.bothArray} striped hover condensed keyField='eventID' height='120px' options={this.state.options} search>
+            <TableHeaderColumn dataSort='true' dataFormat={this.nameFormatter} dataField='eventTitle' > Name</TableHeaderColumn>
+            <TableHeaderColumn dataSort='true' dataField='startDate'> Date </TableHeaderColumn>
+            <TableHeaderColumn dataSort='true' dataField='startTime'> Time </TableHeaderColumn>
             <TableHeaderColumn dataFormat={this.descFormatter} dataField='eventDesc'>Description</TableHeaderColumn>
           </BootstrapTable>
         </div>

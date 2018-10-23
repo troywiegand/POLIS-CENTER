@@ -8,7 +8,7 @@ import EventList from './EventList'
 
 class App extends Component {
 
-  constructor(){
+  constructor() {
     super()
     this.state = {
       error: null,
@@ -18,65 +18,75 @@ class App extends Component {
     }
     this.loadAPI()
   }
-  
-  
-loadAPI = ()=> {
-  //This gets the event info
-  fetch("https://in-polis-app27.ads.iu.edu/SpiritAPI/API/Spirit/Events")
-    .then(res => res.json())
-    .then(
-      (result) => {
-        this.setState({
-          isEventsLoaded: true,
-          items: result
-        })
-      },
 
-      (error) => {
-        this.setState({
-          isEventsLoaded: true,
-          error
-        })
-      }
-    )
-//This gets the presenters info 
+
+  loadAPI = () => {
+    //This gets the event info
+    fetch("https://in-polis-app27.ads.iu.edu/SpiritAPI/API/Spirit/Events")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isEventsLoaded: true,
+            items: result
+          })
+        },
+
+        (error) => {
+          this.setState({
+            isEventsLoaded: true,
+            error
+          })
+        }
+      )
+    //This gets the presenters info 
     fetch("https://in-polis-app27.ads.iu.edu/SpiritAPI/API/Spirit/Presenters")
-    .then(res => res.json())
-    .then(
-      (result) => {
-        this.setState({
-          isPresentersLoaded: true,
-          presenters: result
-        })
-      },
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isPresentersLoaded: true,
+            presenters: result
+          })
+        },
 
-      (error) => {
-        this.setState({
-          isPresentersLoaded: true,
-          error
-        })
-      }
-    )
-//This gets the info about the schedule
+        (error) => {
+          this.setState({
+            isPresentersLoaded: true,
+            error
+          })
+        }
+      )
+    //This gets the info about the schedule
     fetch("https://in-polis-app27.ads.iu.edu/SpiritAPI/API/Spirit/Schedule")
-    .then(res => res.json())
-    .then(
-      (result) => {
-        this.setState({
-          isScheduleLoaded: true,
-          schedule: result
-        })
-      },
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isScheduleLoaded: true,
+            schedule: result
+          })
+        },
 
-      (error) => {
-        this.setState({
-          isScheduleLoaded: true,
-          error
-        })
-      }
-    )
+        (error) => {
+          this.setState({
+            isScheduleLoaded: true,
+            error
+          })
+        }
+      )
+      .then(
+        () => {
+          let both = []
 
-}
+          for (let i = 0; i < this.state.items.length; i++) {
+            both[i] = { ...this.state.items[i], ...this.state.schedule[i] }
+          }
+
+          this.setState({ bothArray: both })
+        }
+      )
+  }
 
 
 
@@ -88,17 +98,17 @@ loadAPI = ()=> {
         </header>
 
         <Switch>
-         {/*  This is the route for specfic pages */}
+          {/*  This is the route for specfic pages */}
           <Route path="/Event/:eventId/:eventTitle"
             render={(navProps) => {
               return (
-                <SpecificEventPage {...navProps} items={this.state.items} 
-                  presenters={this.state.presenters} loadAPI={this.loadAPI}/>
+                <SpecificEventPage {...navProps} items={this.state.items}
+                  presenters={this.state.presenters} bothArray={this.state.both} loadAPI={this.loadAPI} />
               )
             }} />
-            {/*  This is the route all the events */}
+          {/*  This is the route all the events */}
           <Route path="/Event"
-            render={() => { return (<EventList items={this.state.items} />) }} />
+            render={() => { return (<EventList items={this.state.items} bothArray={this.state.bothArray} />) }} />
           <Route render={() => {
             return (
               <Redirect to="/Event" />
