@@ -26,7 +26,7 @@ class EventList extends Component {
           <NavLink to={`/Event/${row.eventId}/${row.eventTitle}`} >
           <h3> {row.eventTitle} </h3>
           </NavLink>
-          <img src={url} alt="etc" height="168" width="168" />
+          <img src={url} alt="etc" height="175vmin" width="150vmin" />
         </div>)
 
     }
@@ -35,9 +35,6 @@ class EventList extends Component {
     <h3> {row.eventTitle} </h3>
     </NavLink>
   }
-
-
-  
 
   render() {
     return (
