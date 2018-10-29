@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-import { BootstrapTable, TableHeaderColumn, SearchField } from 'react-bootstrap-table';
+import { BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import {NavLink} from 'react-router-dom'
 
 import './EventList.css'
 
-
 class EventList extends Component {
 
-  constructor(props){
-    super(props)
-  }
 
   //Processes the decription to dangerously inject the HTML
   descFormatter = (cell, row) => {
@@ -36,15 +32,16 @@ class EventList extends Component {
     </NavLink>
   }
 
+
   render() {
     return (
       <div className="EventList">
 {/* This Bootstrap table is powerful  */}
         <div style={style}>
-          <BootstrapTable data={this.props.bothArray} striped hover condensed keyField='eventID' height='120px' search>
-            <TableHeaderColumn dataSort='true' dataFormat={this.nameFormatter} dataField='eventTitle' > Name</TableHeaderColumn>
-            <TableHeaderColumn dataSort='true' dataField='startDate'> Date </TableHeaderColumn>
-            <TableHeaderColumn dataSort='true' dataField='startTime'> Time </TableHeaderColumn>
+          <BootstrapTable data={this.props.bothArray} striped hover condensed key='eventID' keyField='eventID' height='120px' search>
+            <TableHeaderColumn dataSort={true} dataFormat={this.nameFormatter} dataField='eventTitle' > Name</TableHeaderColumn>
+            <TableHeaderColumn dataSort={true} dataField='startDate'> Date </TableHeaderColumn>
+            <TableHeaderColumn  dataField='startTime'> Time </TableHeaderColumn>
             <TableHeaderColumn dataFormat={this.descFormatter} dataField='eventDesc'>Description</TableHeaderColumn>
           </BootstrapTable>
         </div>
