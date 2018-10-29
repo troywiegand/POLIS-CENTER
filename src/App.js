@@ -103,7 +103,7 @@ class App extends Component {
             render={(navProps) => {
               return (
                 <SpecificEventPage {...navProps} items={this.state.items}
-                  presenters={this.state.presenters} bothArray={this.state.bothArray} loadAPI={this.loadAPI} />
+                  presenters={this.state.presenters} bothArray={this.state.bothArray} />
               )
             }} />
           {/*  This is the route all the events */}
