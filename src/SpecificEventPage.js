@@ -6,7 +6,7 @@ constructor(props){
 
  let eventNumb= this.props.location.pathname.slice(7,8)
  let eventIndex= parseInt(eventNumb, 10)-2
- this.state={eventIndex,Header: "Header",PresenterList: "", items: []}
+ this.state={eventIndex,Header: "Header",PresenterList: "", items: [], bothArray: [], update: false}
  this.loadAPI()
 }
 
@@ -75,23 +75,33 @@ loadAPI = () => {
         }
 
         this.setState({ bothArray: both })
+        this.setState({update: true})
+        console.log(this.state.bothArray)
+        this.updateInfo()
       }
     )
+
+    
 }
 
-componentDidMount(){
+updateInfo(){
   //This gets the title of the event from this.props.items
   let eventNumb= this.props.location.pathname.slice(7,8)
   let eventIndex = parseInt(eventNumb, 10) - 2
   console.log("eventNumb is " + eventIndex)
   console.log("this state is ")
   console.log(this.state)
-  // if(this.state.bothArray[eventIndex]!==undefined)
-  //   this.setState({Header: this.props.bothArray[eventIndex].eventTitle,
-	// 	   PresenterList: this.props.bothArray[eventIndex].PresenterList,
-	// 	   StartDate: this.props.bothArray[eventIndex].startDate,
-	// 	   EndDate: this.props.bothArray[eventIndex].endDate,
-	// 	   RSVP: this.props.bothArray[eventIndex].eventRsvp})
+
+   if(this.state.update){
+    this.setState({Header: this.state.bothArray[this.state.eventIndex].eventTitle,
+      PresenterList: this.state.bothArray[this.state.eventIndex].PresenterList,
+      StartDate: this.state.bothArray[this.state.eventIndex].startDate,
+      EndDate: this.state.bothArray[this.state.eventIndex].endDate,
+      RSVP: this.state.bothArray[this.state.eventIndex].eventRsvp})
+
+
+   }
+    
 
     //This part isn't really working
   // if(this.props.presenters!==undefined)
