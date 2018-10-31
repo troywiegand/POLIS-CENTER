@@ -76,12 +76,15 @@ loadAPI = () => {
 
         this.setState({ bothArray: both })
         this.setState({update: true})
+        
+      }
+    )
+    .then(
+      ()=>{
         console.log(this.state.bothArray)
         this.updateInfo()
       }
     )
-
-    
 }
 
 updateInfo(){
