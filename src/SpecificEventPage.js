@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './SpecificEventPage.css'
+
 class SpecificEventPage extends Component {
 constructor(props){
   super(props)
@@ -95,41 +97,36 @@ updateInfo(){
   console.log("this state is ")
   console.log(this.state)
 
-   if(this.state.update){
+   if(this.state.bothArray[this.state.eventIndex] !== undefined || this.state.update){
     this.setState({Header: this.state.bothArray[this.state.eventIndex].eventTitle,
       PresenterList: this.state.bothArray[this.state.eventIndex].PresenterList,
       StartDate: this.state.bothArray[this.state.eventIndex].startDate,
       EndDate: this.state.bothArray[this.state.eventIndex].endDate,
-      RSVP: this.state.bothArray[this.state.eventIndex].eventRsvp})
-
-
+		StartTime: this.state.bothArray[this.state.eventIndex].startTime,
+	  RSVP: this.state.bothArray[this.state.eventIndex].eventRsvp,
+		Desc: this.state.bothArray[this.state.eventIndex].eventDesc,
+		Venue: this.state.bothArray[this.state.eventIndex].venueName,
+		ZIP: this.state.bothArray[this.state.eventIndex].zip
+		})
    }
-    
-
-    //This part isn't really working
-  // if(this.props.presenters!==undefined)
-  //   this.props.presenters.map((presenter)=>{
-  //     if(presenter.eventId===eventNumb)
-  //       this.setState({PresenterList: this.state.PresenterList+presenter.lastName})
-  //       return null
-  //   })
+   console.log(this.state.Desc)
 }
 
 
   render() {
     return (
       <div className="SpecificEventPage">
-    
           <h1>
             {this.state.Header}
           </h1>
-    
-
     <h3>
-Presenters Include:
-<div > {this.state.PresenterList}</div>
+<div dangerouslySetInnerHTML={{__html: this.state.Desc}}/>
+<div> Presenters Include: {this.state.PresenterList}</div>
 <div> Start Date: {this.state.StartDate} </div>
-RSVP: {this.state.RSVP}
+<div> Start Time: {this.state.StartTime} </div>
+<div> End Date: {this.state.EndDate} </div>
+<div> End Time: {this.state.EndTime} </div>
+<div> RSVP: {this.state.RSVP} </div>
     </h3>
       </div>
     );
