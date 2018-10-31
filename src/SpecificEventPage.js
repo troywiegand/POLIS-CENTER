@@ -121,11 +121,9 @@ updateInfo(){
           </h1>
     <h3>
 <div dangerouslySetInnerHTML={{__html: this.state.Desc}}/>
-<div> Presenters Include: {this.state.PresenterList}</div>
 <div> Start Date: {this.state.StartDate} </div>
 <div> Start Time: {this.state.StartTime} </div>
 <div> End Date: {this.state.EndDate} </div>
-<div> End Time: {this.state.EndTime} </div>
 <div> RSVP: {this.state.RSVP} </div>
     </h3>
       </div>
