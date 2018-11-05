@@ -89,7 +89,7 @@ class SpecificEventPage extends Component {
       )
   }
 
-  componentWillMount(){
+  componentWillMount() {
     this.loadAPI()
   }
 
@@ -121,31 +121,33 @@ class SpecificEventPage extends Component {
 
 
   render() {
-	let startDate = this.state.StartDate !== undefined ? <p> Start Date: {this.state.StartDate} </p> : <div></div> 
-	let address = this.state.Address !== undefined ? <p> Address: {this.state.Address} </p> : <div></div>
-	let startTime = this.state.StartTime !== undefined ? <p> Start Time: {this.state.StartTime} </p> : <div></div>
-    let endDate = this.state.EndDate !== undefined ? <p> End Date: {this.state.EndDate} </p> : <div></div>
-    let endTime = this.state.EndTime !== undefined ? <p> End Time: {this.state.EndTime} </p> : <div></div>
-    let venue = this.state.Venue !== undefined ? <p> Venue: {this.state.Venue} </p> : <div></div>
-    let zip = this.state.ZIP !== undefined ? <p> ZIP: {this.state.ZIP} </p> : <div></div>
+    let startDate = this.state.StartDate !== undefined ? <p> Start Date: {this.state.StartDate} </p> : <div />
+    let address = this.state.Address !== undefined ? <p> Address: {this.state.Address} </p> : <div />
+    let startTime = this.state.StartTime !== undefined ? <p> Start Time: {this.state.StartTime} </p> : <div />
+    let endDate = this.state.EndDate !== undefined ? <p> End Date: {this.state.EndDate} </p> : <div />
+    let endTime = this.state.EndTime !== undefined ? <p> End Time: {this.state.EndTime} </p> : <div />
+    let venue = this.state.Venue !== undefined ? <p> Venue: {this.state.Venue} </p> : <div />
+    let zip = this.state.ZIP !== undefined ? <p> ZIP: {this.state.ZIP} </p> : <div />
+    let PresenterList = this.state.PresenterList !== undefined
+      ? <h2> Presenter List: {this.state.PresenterList} </h2>
+      : <div />
+
     return (
       <div className="SpecificEventPage">
         <h1>
           {this.state.Header}
         </h1>
-        <h2>
-        	Presenter List: {this.state.PresenterList}
-        </h2>
+        {PresenterList}
         <h3>
           {startDate}
           {startTime}
           {endDate}
           {endTime}
-    	  {venue}
+          {venue}
           {zip}
           {address}
-		  <a href={this.state.RSVP}>RSVP Here! </a>
-		  <div dangerouslySetInnerHTML={{ __html: this.state.Desc }} />
+          <a href={this.state.RSVP}>RSVP Here! </a>
+          <div dangerouslySetInnerHTML={{ __html: this.state.Desc }} />
         </h3>
       </div>
     );
