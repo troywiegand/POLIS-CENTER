@@ -112,7 +112,8 @@ class SpecificEventPage extends Component {
         RSVP: this.state.bothArray[this.state.eventIndex].eventRsvp,
         Desc: this.state.bothArray[this.state.eventIndex].eventDesc,
         Venue: this.state.bothArray[this.state.eventIndex].venueName,
-        ZIP: this.state.bothArray[this.state.eventIndex].zip
+        ZIP: this.state.bothArray[this.state.eventIndex].zip,
+        Address: this.state.bothArray[this.state.eventIndex].address
       })
     }
     console.log(this.state.Desc)
@@ -135,6 +136,7 @@ class SpecificEventPage extends Component {
           <p> End Time: {this.state.EndTime} </p>
           <p> Venue: {this.state.Venue} </p>
           <p> ZIP: {this.state.ZIP} </p>
+          <p> Address: {this.state.Addres} </p>
 		  <a href={this.state.RSVP}>RSVP Here! </a>
 		  <div dangerouslySetInnerHTML={{ __html: this.state.Desc }} />
         </h3>
