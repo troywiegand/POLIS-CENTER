@@ -19,6 +19,10 @@ class App extends Component {
     this.loadAPI()
   }
 
+  componentWillMount(){
+    this.loadAPI()
+  }
+
 
   loadAPI = () => {
     //This gets the event info
@@ -102,8 +106,7 @@ class App extends Component {
           <Route path="/Event/:eventId/:eventTitle"
             render={(navProps) => {
               return (
-                <SpecificEventPage {...navProps} items={this.state.items}
-                  presenters={this.state.presenters} bothArray={this.state.bothArray} />
+                <SpecificEventPage {...navProps}  />
               )
             }} />
           {/*  This is the route all the events */}
