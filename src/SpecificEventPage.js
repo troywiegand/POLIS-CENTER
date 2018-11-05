@@ -128,6 +128,7 @@ class SpecificEventPage extends Component {
     let endTime = this.state.EndTime !== undefined ? <p> End Time: {this.state.EndTime} </p> : <div></div>
     let venue = this.state.Venue !== undefined ? <p> Venue: {this.state.Venue} </p> : <div></div>
     let zip = this.state.ZIP !== undefined ? <p> ZIP: {this.state.ZIP} </p> : <div></div>
+    let rsvp = this.state.RSVP !== undefined ? <a href={this.state.RSVP}>RSVP Here! </a> : <div></div>
     return (
       <div className="SpecificEventPage">
         <h1>
@@ -144,7 +145,7 @@ class SpecificEventPage extends Component {
     	  {venue}
           {zip}
           {address}
-		  <a href={this.state.RSVP}>RSVP Here! </a>
+		  {rsvp}
 		  <div dangerouslySetInnerHTML={{ __html: this.state.Desc }} />
         </h3>
       </div>
