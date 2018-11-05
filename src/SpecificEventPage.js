@@ -89,7 +89,7 @@ class SpecificEventPage extends Component {
       )
   }
 
-  componentWillMount(){
+  componentWillMount() {
     this.loadAPI()
   }
 
@@ -129,20 +129,22 @@ class SpecificEventPage extends Component {
     let venue = this.state.Venue !== undefined ? <p> Venue: {this.state.Venue} </p> : <div></div>
     let zip = this.state.ZIP !== undefined ? <p> ZIP: {this.state.ZIP} </p> : <div></div>
     let rsvp = this.state.RSVP !== undefined ? <a href={this.state.RSVP}>RSVP Here! </a> : <div></div>
+    let PresenterList = this.state.PresenterList !== undefined
+      ? <h2> Presenter List: {this.state.PresenterList} </h2>
+      : <div />
+
     return (
       <div className="SpecificEventPage">
         <h1>
           {this.state.Header}
         </h1>
-        <h2>
-        	Presenter List: {this.state.PresenterList}
-        </h2>
+        {PresenterList}
         <h3>
           {startDate}
           {startTime}
           {endDate}
           {endTime}
-    	  {venue}
+          {venue}
           {zip}
           {address}
 		  {rsvp}
