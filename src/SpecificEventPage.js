@@ -108,6 +108,7 @@ class SpecificEventPage extends Component {
         StartDate: this.state.bothArray[this.state.eventIndex].startDate,
         EndDate: this.state.bothArray[this.state.eventIndex].endDate,
         StartTime: this.state.bothArray[this.state.eventIndex].startTime,
+        EndTime: this.state.bothArray[this.state.eventIndex].endTime,
         RSVP: this.state.bothArray[this.state.eventIndex].eventRsvp,
         Desc: this.state.bothArray[this.state.eventIndex].eventDesc,
         Venue: this.state.bothArray[this.state.eventIndex].venueName,
@@ -124,13 +125,19 @@ class SpecificEventPage extends Component {
         <h1>
           {this.state.Header}
         </h1>
+        <h2>
+        	Presenter List: {this.state.PresenterList}
+        </h2>
         <h3>
-          <div dangerouslySetInnerHTML={{ __html: this.state.Desc }} />
-          <div> Start Date: {this.state.StartDate} </div>
-          <div> Start Time: {this.state.StartTime} </div>
-          <div> End Date: {this.state.EndDate} </div>
-         <a href={this.state.RSVP}>RSVP Here! </a>
-          </h3>
+          <p> Start Date: {this.state.StartDate} </p>
+          <p> Start Time: {this.state.StartTime} </p>
+          <p> End Date: {this.state.EndDate} </p>
+          <p> End Time: {this.state.EndTime} </p>
+          <p> Venue: {this.state.Venue} </p>
+          <p> ZIP: {this.state.ZIP} </p>
+		  <a href={this.state.RSVP}>RSVP Here! </a>
+		  <div dangerouslySetInnerHTML={{ __html: this.state.Desc }} />
+        </h3>
       </div>
     );
   }
