@@ -132,7 +132,7 @@ class SpecificEventPage extends Component {
     let PresenterList = this.state.PresenterList !== undefined
       ? <h2> Presenter List: {this.state.PresenterList} </h2>
       : <div />
-
+    let desc = this.state.Desc !== undefined ?  <div dangerouslySetInnerHTML={{ __html: this.state.Desc }} /> : <div></div>
     return (
       <div className="SpecificEventPage">
         <h1>
@@ -148,7 +148,7 @@ class SpecificEventPage extends Component {
           {zip}
           {address}
 		  {rsvp}
-		  <div dangerouslySetInnerHTML={{ __html: this.state.Desc }} />
+		  {desc}
         </h3>
       </div>
     );
