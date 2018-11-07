@@ -7,7 +7,11 @@ class SpecificEventPage extends Component {
     super(props)
 
     let eventNumb = this.props.location.pathname.slice(7, 8)
+      if(this.props.location.pathname.slice(8, 9)!=="/")
+      eventNumb +=this.props.location.pathname.slice(8, 9)
+
     let eventIndex = parseInt(eventNumb, 10) - 2
+    console.log(eventIndex)
     this.state = { eventIndex, Header: "Header", PresenterList: "", items: [], bothArray: [], update: false }
     this.loadAPI()
   }
@@ -95,11 +99,6 @@ class SpecificEventPage extends Component {
 
   updateInfo() {
     //This gets the title of the event from this.props.items
-    let eventNumb = this.props.location.pathname.slice(7, 8)
-    let eventIndex = parseInt(eventNumb, 10) - 2
-    console.log("eventNumb is " + eventIndex)
-    console.log("this state is ")
-    console.log(this.state)
 
     if (this.state.bothArray[this.state.eventIndex] !== undefined && this.state.update) {
       this.setState({
