@@ -16,7 +16,7 @@ class SpecificEventPage extends Component {
 
     let eventIndex = parseInt(eventNumb, 10) - 2
     console.log(eventIndex)
-    this.state = { eventIndex, Header: "Header", PresenterList: "", items: [], bothArray: [], update: false }
+    this.state = { eventIndex, Header: "Header", PresenterList: "", items: [], bothArray: [], update: false, presenters: [] }
     this.loadAPI()
   }
 
@@ -143,6 +143,25 @@ class SpecificEventPage extends Component {
 
 
   render() {
+	let presenters = []
+	if(this.state.presenters[0] !== undefined)
+	{
+		this.state.presenters.forEach(
+		(p) => {
+			if(p.eventId - 2 === this.state.eventIndex)
+				presenters.push(p)
+		});
+		console.log("presenters: ")
+		console.log(presenters)
+	}
+	let presenterList = "" 
+	presenters.forEach((p, i, arr) => {
+		if(i === presenters.length - 1)
+			presenterList += p.firstName + " " + p.lastName
+		else
+			presenterList += p.firstName + " " + p.lastName + ", "
+	})
+	console.log("presenterList: " + presenterList)
 	let startDate = this.state.StartDate !== undefined ? <p> Start Date: {this.state.StartDate} </p> : <div></div> 
 	let address = this.state.Address !== undefined ? <p> Address: {this.state.Address} </p> : <div></div>
 	let startTime = this.state.StartTime !== undefined ? <p> Start Time: {this.state.StartTime} </p> : <div></div>
@@ -151,16 +170,16 @@ class SpecificEventPage extends Component {
     let venue = this.state.Venue !== undefined ? <p> Venue: {this.state.Venue} </p> : <div></div>
     let zip = this.state.ZIP !== undefined ? <p> ZIP: {this.state.ZIP} </p> : <div></div>
     let rsvp = this.state.RSVP !== undefined ? <a href={this.state.RSVP}>RSVP Here! </a> : <div></div>
-    let PresenterList = this.state.PresenterList !== undefined
-      ? <h2> Presenter List: {this.state.PresenterList} </h2>
-      : <div />
+    let PresenterList = presenterList !== "" ? <p> Presenters: {presenterList} </p> : <div></div>
     let desc = this.state.Desc !== undefined ?  <div dangerouslySetInnerHTML={{ __html: this.state.Desc }} /> : <div></div>
     return (
       <div className="SpecificEventPage">
         <h1>
           {this.state.Header}
         </h1>
-        {PresenterList}
+		<h2>
+			{PresenterList}
+		</h2>
         <h3>
           {startDate}
           {startTime}
