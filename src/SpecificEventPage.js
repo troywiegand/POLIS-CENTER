@@ -7,8 +7,12 @@ class SpecificEventPage extends Component {
     super(props)
 
     let eventNumb = this.props.location.pathname.slice(7, 8)
+
       if(this.props.location.pathname.slice(8, 9)!=="/")
       eventNumb +=this.props.location.pathname.slice(8, 9)
+
+      if(this.thirdDigitCheck())
+        eventNumb +=this.props.location.pathname.slice(9, 10)
 
     let eventIndex = parseInt(eventNumb, 10) - 2
     console.log(eventIndex)
@@ -16,6 +20,25 @@ class SpecificEventPage extends Component {
     this.loadAPI()
   }
 
+  thirdDigitCheck = ()=>{
+  const NUMB = parseInt(this.props.location.pathname.slice(9, 10))  
+    switch(NUMB){
+      case 0:
+      case 1:
+      case 2:
+      case 3: 
+      case 4:
+      case 5:
+      case 6:
+      case 7:
+      case 8:
+      case 9:
+      return true;
+      default:
+      return false;
+    }
+
+  }
 
   loadAPI = () => {
     //This gets the event info
