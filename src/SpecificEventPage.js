@@ -160,8 +160,16 @@ class SpecificEventPage extends Component {
 			presenterList += p.firstName + " " + p.lastName
 		else
 			presenterList += p.firstName + " " + p.lastName + ", "
+	});
+	let presenterBios = ""
+	presenters.forEach((p) => {
+		if(p.bio !== "bio forthcoming")
+			presenterBios += "<b>" + p.firstName + " "  +
+								p.lastName + "</b>: " + p.bio
 	})
 	console.log("presenterList: " + presenterList)
+	console.log("presenter bios: ");
+	console.log(presenterBios);
 	let startDate = this.state.StartDate !== undefined ? <p> Start Date: {this.state.StartDate} </p> : <div></div> 
 	let address = this.state.Address !== undefined ? <p> Address: {this.state.Address} </p> : <div></div>
 	let startTime = this.state.StartTime !== undefined ? <p> Start Time: {this.state.StartTime} </p> : <div></div>
@@ -171,7 +179,8 @@ class SpecificEventPage extends Component {
     let zip = this.state.ZIP !== undefined ? <p> ZIP: {this.state.ZIP} </p> : <div></div>
     let rsvp = this.state.RSVP !== undefined ? <a href={this.state.RSVP}>RSVP Here! </a> : <div></div>
     let PresenterList = presenterList !== "" ? <p> Presenters: {presenterList} </p> : <div></div>
-    let desc = this.state.Desc !== undefined ?  <div dangerouslySetInnerHTML={{ __html: this.state.Desc }} /> : <div></div>
+    let PresenterBios = presenterBios !== [] ? <div dangerouslySetInnerHTML={{__html: presenterBios }} /> : <div></div>
+	let desc = this.state.Desc !== undefined ? <div dangerouslySetInnerHTML={{ __html: this.state.Desc }} /> : <div></div>
     return (
       <div className="SpecificEventPage">
         <h1>
@@ -191,6 +200,10 @@ class SpecificEventPage extends Component {
 		  {rsvp}
 		  {desc}
         </h3>
+		<h3>
+			<h2>Presenter Biographies: </h2><br/>
+			{PresenterBios}
+		</h3>
       </div>
     );
   }
