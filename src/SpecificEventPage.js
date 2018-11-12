@@ -163,7 +163,7 @@ class SpecificEventPage extends Component {
 	});
 	let presenterBios = ""
 	presenters.forEach((p) => {
-		if(p.bio !== "bio forthcoming")
+		if(p.bio.toLowerCase() !== "bio forthcoming")
 			presenterBios += "<b>" + p.firstName + " "  +
 								p.lastName + "</b>: " + p.bio
 	})
