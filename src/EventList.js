@@ -6,6 +6,10 @@ import './EventList.css'
 
 class EventList extends Component {
 
+  constructor(props){
+    super(props)
+    this.state={defaultPicture: "http://www.spiritandplace.org/images/template/home%20page%20head%20graphic.png"}
+  }
 
   //Processes the decription to dangerously inject the HTML
   descFormatter = (cell, row) => {
@@ -22,20 +26,16 @@ class EventList extends Component {
           <NavLink to={`/Event/${row.eventId}/${row.eventTitle}`} >
             <h3> {row.eventTitle} </h3>
           </NavLink>
-          <img src={url} alt="etc" height="175vmin" width="150vmin" />
+          <img src={url} alt=" " height="175vmin" width="200vmin" />
         </div>)
 
     }else{
       return <NavLink to={`/Event/${row.eventId}/${row.eventTitle}`}>
       <h3> {row.eventTitle} </h3>
-      <img src={"http://www.spiritandplace.org/images/template/Side%20Graphic%20Logo.png"} alt="etc" height="175vmin" width="150vmin" />
+      <img src={this.state.defaultPicture} alt=" " height="175vmin" width="200vmin" />
     </NavLink>
-
-    }
-
-    
+   }  
   }
-
 
   render() {
     return (
