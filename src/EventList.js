@@ -25,11 +25,15 @@ class EventList extends Component {
           <img src={url} alt="etc" height="175vmin" width="150vmin" />
         </div>)
 
+    }else{
+      return <NavLink to={`/Event/${row.eventId}/${row.eventTitle}`}>
+      <h3> {row.eventTitle} </h3>
+      <img src={"http://www.spiritandplace.org/images/template/Side%20Graphic%20Logo.png"} alt="etc" height="175vmin" width="150vmin" />
+    </NavLink>
+
     }
 
-    return <NavLink to={`/Event/${row.eventId}/${row.eventTitle}`}>
-      <h3> {row.eventTitle} </h3>
-    </NavLink>
+    
   }
 
 
