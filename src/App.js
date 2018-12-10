@@ -98,8 +98,16 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Spirit & Place</h1>
+          <img
+            src="http://www.spiritandplace.org/spwebresources/2016/S&P%20Festival%20Updated%20Final%20[color].jpg"
+            width="100%" height="150%" />
+
         </header>
+
+        <br />
+        <br />
+        <br />
+        <br />
 
         <Switch>
           {/*  This is the route for specfic pages */}

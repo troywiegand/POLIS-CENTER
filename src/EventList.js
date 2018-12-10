@@ -8,7 +8,7 @@ class EventList extends Component {
 
   constructor(props){
     super(props)
-    this.state={defaultPicture: "http://www.spiritandplace.org/images/template/home%20page%20head%20graphic.png"}
+    this.state={defaultPicture: "https://pbs.twimg.com/profile_images/301603347/sap-twitter.gif"}
   }
 
   //Processes the decription to dangerously inject the HTML
