@@ -1,8 +1,8 @@
 {
   "name": "spiritandplace",
   "version": "0.1.0",
-  "private": true,
-  "homepage": "https://github.butler.edu/pages/epicspolis/spiritandplace/",
+  "private": false,
+  "homepage": "https://troywiegand.github.io/POLIS-CENTER/",
   "dependencies": {
     "flexbox": "0.0.3",
     "gh-pages": "^2.0.1",
