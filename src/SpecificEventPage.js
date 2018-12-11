@@ -235,6 +235,11 @@ class SpecificEventPage extends Component {
         <br />
         <br />
         <br />
+        <footer className="footer">
+          Spirit & Place is a project of the 
+          <a href="http://polis.iupui.edu/"> Polis Center</a>, 
+          <a href="http://www.liberalarts.iupui.edu/">IU School of Liberal Arts/IUPUI </a>
+        </footer>
       </div>
     );
   }

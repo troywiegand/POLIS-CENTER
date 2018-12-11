@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  box-sizing: border-box;
+  position: relative;
+  padding-bottom: 1em; /* Height of footer */
+  min-height: 100%;
 }
 
 
@@ -16,4 +20,10 @@
 
 .App-intro {
   font-size: large;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }

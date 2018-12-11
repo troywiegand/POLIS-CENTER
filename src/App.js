@@ -100,14 +100,13 @@ class App extends Component {
         <header className="App-header">
           <img
             src="http://www.spiritandplace.org/spwebresources/2016/S&P%20Festival%20Updated%20Final%20[color].jpg"
-            width="100%" height="150%" />
+            width="75%" />
 
         </header>
 
         <br />
         <br />
-        <br />
-        <br />
+      
 
         <Switch>
           {/*  This is the route for specfic pages */}
@@ -127,6 +126,8 @@ class App extends Component {
           }} />
 
         </Switch>
+
+       
       </div>
     );
   }

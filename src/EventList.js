@@ -50,7 +50,6 @@ class EventList extends Component {
           </BootstrapTable>
         </div>
 
-
       </div>
     );
   }
